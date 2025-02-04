@@ -49,7 +49,7 @@ function EducationForm() {
                     </div>
                 )}
             </div>
-            {inputs.map((id) => (
+            {inputs.map(({id}) => (
                 <div key={`edu-input-wrapper-${id}`} className="form-inputs">
                     <Input
                         key={`edu-company-${id}`}
