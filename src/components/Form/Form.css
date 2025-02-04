@@ -1,0 +1,23 @@
+.form-section {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 1rem;
+    width: 100%;
+}
+.form-inputs{
+    display: grid;
+    align-content: start;
+    grid-template-columns: 1fr;
+    gap: 0.5rem 2rem;
+    margin: 0 1rem 1rem 0;
+    gap: 1rem;
+}
+/* this feels a little disgusting, so I may change it in the future */
+@media (min-width: 1200px) { 
+    .form-inputs {
+        grid-template-columns: 50% 50%; 
+    }
+}
