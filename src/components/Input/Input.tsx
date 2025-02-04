@@ -8,9 +8,11 @@ interface InputProps {
 }
 
 function Input({label, type="text", placeholder="", isDisabled=false}:InputProps) {
+    const id:string = String(Date.now() + Math.random())
+
     return (
         <div className="coolinput">
-            <label htmlFor="input" className="text">
+            <label htmlFor={id} className="text">
                 {label}
             </label>
             <input
@@ -19,6 +21,7 @@ function Input({label, type="text", placeholder="", isDisabled=false}:InputProps
                 placeholder={placeholder}
                 name="input"
                 className="input"
+                id={id}
             />
         </div>
     );
