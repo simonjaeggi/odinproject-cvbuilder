@@ -12,7 +12,7 @@ function EducationForm() {
     };
     return (
         <div className="form-section">
-            <FormTitle title="Education"></FormTitle>
+            <FormTitle icon="ri-graduation-cap-fill" title="Education"></FormTitle>
             <div className="form-inputs">
                 <Input
                     isDisabled={!isEditable}

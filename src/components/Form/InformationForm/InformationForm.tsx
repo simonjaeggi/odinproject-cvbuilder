@@ -12,7 +12,7 @@ function InformationForm() {
 
     return (
         <div className="form-section">
-            <FormTitle title="General Information"></FormTitle>
+            <FormTitle icon="ri-information-2-fill" title="General Information"></FormTitle>
 
             <div className="form-inputs">
                 <Input isDisabled={!isEditable} placeholder="Bill" label="Name"></Input>
