@@ -6,7 +6,7 @@ import { useState } from "react";
 
 function WorkForm() {
     const [isEditable, setEditable] = useState(true);
-    const [inputs, setInputs] = useState([{id: 0}]);
+    const [inputs, setInputs] = useState([{ id: 0 }]);
 
     const saveButtonClickHandler = () => {
         setEditable(!isEditable);
@@ -14,7 +14,7 @@ function WorkForm() {
     const addButtonClickHandler = () => {
         setInputs((previousInputs) => [
             ...previousInputs,
-            {id: inputs.length},
+            { id: inputs.length },
         ]);
     };
 
@@ -30,44 +30,48 @@ function WorkForm() {
                     title="Work Experience"
                 ></FormTitle>
 
-                <div className="flex-row gap-1rem">
-                    {inputs.length > 1 && (
-                        <Button
-                            clickhandler={removeClickHandler}
-                            bgColor="#D93934"
-                            label="Remove last"
-                        ></Button>
-                    )}
+                {isEditable && (
+                    <div className="flex-row gap-1rem">
+                        {inputs.length > 1 && (
+                            <Button
+                                clickhandler={removeClickHandler}
+                                bgColor="#D93934"
+                                label="Remove"
+                                icon="ri-delete-bin-line"
+                            ></Button>
+                        )}
 
-                    <Button
-                        clickhandler={addButtonClickHandler}
-                        bgColor="#9478C8"
-                        label="ADD"
-                    ></Button>
-                </div>
+                        <Button
+                            clickhandler={addButtonClickHandler}
+                            bgColor="#9478C8"
+                            label="ADD"
+                            icon="ri-add-large-line"
+                        ></Button>
+                    </div>
+                )}
             </div>
-            {inputs.map(( id ) => (
-                <div key={`input-wrapper-${id}`} className="form-inputs">
+            {inputs.map(({id}) => (
+                <div key={`work-input-wrapper-${id}`} className="form-inputs">
                     <Input
-                        key={`company-${id}`}
+                        key={`work-company-${id}`}
                         isDisabled={!isEditable}
                         placeholder="Alphabet Inc"
                         label="Company"
                     />
                     <Input
-                        key={`position-${id}`}
+                        key={`work-position-${id}`}
                         isDisabled={!isEditable}
                         placeholder="Senior Software Engineer"
                         label="Position"
                     />
                     <Input
-                        key={`start-${id}`}
+                        key={`work-start-${id}`}
                         isDisabled={!isEditable}
                         label="Start Date"
                         type="date"
                     />
                     <Input
-                        key={`end-${id}`}
+                        key={`work-end-${id}`}
                         isDisabled={!isEditable}
                         label="End Date"
                         type="date"
@@ -79,6 +83,7 @@ function WorkForm() {
                 clickhandler={saveButtonClickHandler}
                 label={isEditable ? "Save" : "Edit"}
                 bgColor={isEditable ? undefined : "#D93934"}
+                icon={isEditable ? "ri-save-line" : "ri-pencil-fill"}
             ></Button>
         </div>
     );
