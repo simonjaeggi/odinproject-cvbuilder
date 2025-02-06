@@ -1,91 +1,62 @@
-import "../Form.css";
-import Input from "../../Input/Input.tsx";
-import Button from "../../Button/Button.tsx";
-import FormTitle from "../FormTitle/FormTitle.tsx";
-import { useState } from "react";
+import EducationBlock from "./EducationBlock";
+import Button from "../../Button/Button";
+import FormTitle from "../FormTitle/FormTitle";
+import { v4 as uuidv4 } from "uuid";
 
-function EducationForm() {
-    const [isEditable, setEditable] = useState(true);
-    const [inputs, setInputs] = useState([{ id: 0 }]);
-
-    const saveButtonClickHandler = () => {
-        setEditable(!isEditable);
-    };
-    const addButtonClickHandler = () => {
-        setInputs((previousInputs) => [
-            ...previousInputs,
-            { id: inputs.length },
-        ]);
-    };
-
-    const removeClickHandler = () => {
-        setInputs((previousInputs) => previousInputs.slice(0, -1));
-    };
-    return (
-        <div className="form">
-            <div className="flex-row space-between">
-                <FormTitle
-                    icon="ri-graduation-cap-fill"
-                    title="Education"
-                ></FormTitle>
-
-                {isEditable && (
-                    <div className="flex-row gap-1rem">
-                        {inputs.length > 1 && (
-                            <Button
-                                clickhandler={removeClickHandler}
-                                bgColor="#D93934"
-                                label="Remove"
-                                icon="ri-delete-bin-line"
-                            ></Button>
-                        )}
-
-                        <Button
-                            clickhandler={addButtonClickHandler}
-                            bgColor="#9478C8"
-                            label="ADD"
-                            icon="ri-add-large-line"
-                        ></Button>
-                    </div>
-                )}
-            </div>
-            {inputs.map(({id}) => (
-                <div key={`edu-input-wrapper-${id}`} className="form-inputs">
-                    <Input
-                        key={`edu-company-${id}`}
-                        isDisabled={!isEditable}
-                        placeholder="HSLU"
-                        label="School"
-                    />
-                    <Input
-                        key={`edu-program-${id}`}
-                        isDisabled={!isEditable}
-                        placeholder="BSc in Computer Science"
-                        label="Program"
-                    />
-                    <Input
-                        key={`edu-start-${id}`}
-                        isDisabled={!isEditable}
-                        label="Start Date"
-                        type="date"
-                    />
-                    <Input
-                        key={`edu-end-${id}`}
-                        isDisabled={!isEditable}
-                        label="End Date"
-                        type="date"
-                    />
-                </div>
-            ))}
-
-            <Button
-                clickhandler={saveButtonClickHandler}
-                label={isEditable ? "Save" : "Edit"}
-                bgColor={isEditable ? undefined : "#D93934"}
-                icon={isEditable ? "ri-save-line" : "ri-pencil-fill"}
-            ></Button>
-        </div>
-    );
+interface EducationFormProps {
+    education: Record<string, Record<string, string>>;
+    setEducation: React.Dispatch<
+        React.SetStateAction<Record<string, Record<string, string>>>
+    >;
 }
 
-export default EducationForm;
+export default function EducationForm({
+    education,
+    setEducation,
+}: EducationFormProps) {
+
+    const addButtonClickHandler = () => {
+        setEducation((prevEducation) => ({
+            ...prevEducation,
+            [uuidv4()]: {},
+        }));
+    };
+
+    const handleRemove = (educationBlockId: string) => {
+        // A bit ugly, I need to convert the top level Record into an array and then reassemble into an object.
+        const newEducation = Object.fromEntries(
+            Object.entries(education).filter(([id]) => id !== educationBlockId)
+        );
+
+        setEducation(newEducation);
+    };
+
+    return (
+        <>
+            <div className="form">
+                <div className="flex-row space-between">
+                    <FormTitle
+                        icon="ri-graduation-cap-fill"
+                        title="Education"
+                    ></FormTitle>
+                    <Button
+                        clickhandler={addButtonClickHandler}
+                        label="ADD"
+                        icon="ri-add-large-line"
+                    ></Button>
+                </div>
+
+                {Object.entries(education).map(([id]) => {
+                    return (
+                        <EducationBlock
+                            setEducation={setEducation}
+                            key={id}
+                            id={id}
+                            handleRemove={handleRemove}
+                        ></EducationBlock>
+                    );
+                })}
+            </div>
+        </>
+    );
+}
