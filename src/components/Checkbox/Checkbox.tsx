@@ -3,16 +3,15 @@ import "./Checkbox.css";
 interface CheckboxProps{
     label: string;
     isDisabled?:boolean;
-    onChangeHandler: ()=> void;
+    handleChange: (data: {value: unknown; id:string}) => void;
+    id: string;
 }
 
-function Checkbox({ label, isDisabled=false, onChangeHandler}: CheckboxProps) {
-    const id:string = String(Date.now() + Math.random())
-
+function Checkbox({label, isDisabled=false, handleChange, id}: CheckboxProps) {
     return (
         <>
             <div className="checkbox-wrapper-4">
-                <input className="inp-cbx" disabled={isDisabled} id={id} type="checkbox" onChange={onChangeHandler}></input>
+                <input className="inp-cbx" disabled={isDisabled} id={id} type="checkbox" onChange={(e:any) => handleChange({value: e.target.value, id} )}></input>
                 <label className="cbx" htmlFor={id}>
                     <span>
                         <svg width="12px" height="10px"></svg>
