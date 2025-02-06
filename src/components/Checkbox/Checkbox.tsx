@@ -3,7 +3,7 @@ import "./Checkbox.css";
 interface CheckboxProps{
     label: string;
     isDisabled?:boolean;
-    handleChange: (data: {value: unknown; id:string}) => void;
+    handleChange: (data: {isChecked: boolean; id:string}) => void;
     id: string;
 }
 
@@ -11,7 +11,8 @@ function Checkbox({label, isDisabled=false, handleChange, id}: CheckboxProps) {
     return (
         <>
             <div className="checkbox-wrapper-4">
-                <input className="inp-cbx" disabled={isDisabled} id={id} type="checkbox" onChange={(e:any) => handleChange({value: e.target.value, id} )}></input>
+                {/* this is just to test the functionality */}
+                <input className="inp-cbx" disabled={isDisabled} id={id} type="checkbox" onChange={(e) => handleChange({isChecked: e.target.checked, id} )}></input>
                 <label className="cbx" htmlFor={id}>
                     <span>
                         <svg width="12px" height="10px"></svg>
