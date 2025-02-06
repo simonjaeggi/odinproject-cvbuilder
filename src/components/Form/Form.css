@@ -1,4 +1,4 @@
-.form-section {
+.form {
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;
@@ -7,6 +7,11 @@
     margin: 1rem;
     width: 100%;
 }
+.form-section{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 .form-inputs{
     display: grid;
     align-content: start;
@@ -15,6 +20,7 @@
     margin: 0 1rem 1rem 0;
     gap: 1rem;
 }
+
 /* this feels a little disgusting, so I may change it in the future */
 @media (min-width: 1200px) { 
     .form-inputs {
