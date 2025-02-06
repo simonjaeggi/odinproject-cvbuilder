@@ -1,7 +1,8 @@
 import "./App.css";
 import InformationForm from "./components/Form/InformationForm/InformationForm.tsx";
 import EducationForm from "./components/Form/EducationForm/EducationForm.tsx";
-import WorkForm from "./components/Form/WorkForm/WorkForm.tsx";
+import WorkForm from "./components/Form/Work/WorkForm.tsx";
+
 
 function App() {
     return (
