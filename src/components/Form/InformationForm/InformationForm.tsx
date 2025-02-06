@@ -13,7 +13,7 @@ function InformationForm() {
     };
 
     return (
-        <div className="form-section">
+        <div className="form">
             <FormTitle
                 icon="ri-information-2-fill"
                 title="General Information"

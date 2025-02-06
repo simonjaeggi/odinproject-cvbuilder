@@ -22,7 +22,7 @@ function EducationForm() {
         setInputs((previousInputs) => previousInputs.slice(0, -1));
     };
     return (
-        <div className="form-section">
+        <div className="form">
             <div className="flex-row space-between">
                 <FormTitle
                     icon="ri-graduation-cap-fill"
