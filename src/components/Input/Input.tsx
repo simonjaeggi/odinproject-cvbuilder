@@ -1,3 +1,4 @@
+// import { useRef } from "react";
 import "./Input.css";
 
 interface InputProps {
@@ -5,10 +6,12 @@ interface InputProps {
     type?:string;
     placeholder?:string;
     isDisabled?:boolean;
+    id:string;
+    handleChange: (data: {value: unknown; id:string}) => void;
 }
 
-function Input({label, type="text", placeholder="", isDisabled=false}:InputProps) {
-    const id:string = String(Date.now() + Math.random())
+function Input({label, type="text", placeholder="", isDisabled=false, id, handleChange}:InputProps) {
+    // const inputRef = useRef<HTMLInputElement>(null);
 
     return (
         <div className="coolinput">
@@ -16,6 +19,8 @@ function Input({label, type="text", placeholder="", isDisabled=false}:InputProps
                 {label}
             </label>
             <input
+                // ref={inputRef}
+                onChange={(e) => handleChange({value: e.target.value, id} )}
                 disabled={isDisabled}
                 type={type}
                 placeholder={placeholder}
