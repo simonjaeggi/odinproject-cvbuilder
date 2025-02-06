@@ -7,10 +7,11 @@ interface InputProps {
     placeholder?:string;
     isDisabled?:boolean;
     id:string;
-    handleChange: (data: {value: unknown; id:string}) => void;
+    handleChange: (data: {value: string; id:string}) => void;
+    defaultValue?:string;
 }
 
-function Input({label, type="text", placeholder="", isDisabled=false, id, handleChange}:InputProps) {
+function Input({label, type="text", placeholder="", isDisabled=false, id, handleChange, defaultValue}:InputProps) {
     // const inputRef = useRef<HTMLInputElement>(null);
 
     return (
@@ -27,6 +28,7 @@ function Input({label, type="text", placeholder="", isDisabled=false, id, handle
                 name="input"
                 className="input"
                 id={id}
+                defaultValue={defaultValue && defaultValue}
             />
         </div>
     );
