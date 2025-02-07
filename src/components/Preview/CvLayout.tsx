@@ -162,7 +162,7 @@ export default function CvLayout({ info, education, work }: CvLayoutProps) {
                 </View>
 
                 <Text style={styles.footer}>
-                    © {new Date().getFullYear()}
+                    © {`${new Date().getFullYear()} ${info["info-name"]} ${info["info-surname"]}`}
                     {`${info["info-name"]} ${info["info-surname"]}`}
                 </Text>
             </Page>
