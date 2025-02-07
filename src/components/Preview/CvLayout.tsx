@@ -89,6 +89,7 @@ export default function CvLayout({ info, education, work }: CvLayoutProps) {
                 {/* General Information */}
                 <Text style={styles.sectionTitle}>General Information</Text>
                 <View style={styles.sectionContent}>
+
                     <Text>Surname: {info["info-surname"]}</Text>
                     <Text>Name: {info["info-name"]}</Text>
                     <Text>Email: {info["info-email"]}</Text>
@@ -98,7 +99,7 @@ export default function CvLayout({ info, education, work }: CvLayoutProps) {
                 {/* Education */}
                 <Text style={styles.sectionTitle}>Education</Text>
                 <View style={styles.eduWorkSection}>
-                    {/* Education Entry 1 */}
+
                     {Object.entries(education).map(([key, value]) => {
                         const school = value[`edu-school-${key}`];
                         const program = value[`edu-program-${key}`];
@@ -131,7 +132,7 @@ export default function CvLayout({ info, education, work }: CvLayoutProps) {
                 {/* Work */}
                 <Text style={styles.sectionTitle}>Work Experience</Text>
                 <View style={styles.eduWorkSection}>
-                    {/* Work Entry 1 */}
+
                     {Object.entries(work).map(([key, value]) => {
                         const company = value[`work-company-${key}`];
                         const position = value[`work-position-${key}`];
