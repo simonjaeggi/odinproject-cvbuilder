@@ -92,7 +92,7 @@ function InformationForm({ info, setInfo }: InformationFormProps) {
             <Button
                 clickhandler={saveButtonClickHandler}
                 label={isEditable ? "Save" : "Edit"}
-                bgColor={isEditable ? undefined : "#D93934"}
+                bgColor={isEditable ? "#23914b" : "#488aec"}
                 icon={isEditable ? "ri-save-line" : "ri-pencil-fill"}
             ></Button>
         </div>
