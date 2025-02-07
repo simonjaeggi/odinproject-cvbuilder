@@ -45,7 +45,7 @@ function App() {
                 />
                 <WorkForm work={work} setWork={setWork} />
             </div>
-            <Preview></Preview>
+            <Preview info={info} education={education} work={work}></Preview>
         </>
     );
 }
