@@ -3,6 +3,7 @@ import InformationForm from "./components/Form/InformationForm/InformationForm.t
 import EducationForm from "./components/Form/EducationForm/EducationForm.tsx";
 import WorkForm from "./components/Form/Work/WorkForm.tsx";
 import { useEffect, useState } from "react";
+import Preview from "./components/Preview/Preview.tsx";
 
 function App() {
     const [info, setInfo] = useState<Record<string, string>>({});
@@ -44,6 +45,7 @@ function App() {
                 />
                 <WorkForm work={work} setWork={setWork} />
             </div>
+            <Preview></Preview>
         </>
     );
 }
