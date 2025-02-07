@@ -33,7 +33,7 @@ export default function EducationForm({
 
     return (
         <>
-            <div className="form">
+            <div className="card">
                 <div className="flex-row space-between">
                     <FormTitle
                         icon="ri-graduation-cap-fill"

@@ -47,7 +47,7 @@ function InformationForm({ info, setInfo }: InformationFormProps) {
     };
 
     return (
-        <div className="form">
+        <div className="card">
             <FormTitle
                 icon="ri-information-2-fill"
                 title="General Information"

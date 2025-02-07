@@ -28,7 +28,7 @@ export default function WorkForm({ work, setWork }: WorkFormProps) {
     };
     return (
         <>
-            <div className="form">
+            <div className="card">
                 <div className="flex-row space-between">
                     <FormTitle
                         icon="ri-briefcase-fill"
