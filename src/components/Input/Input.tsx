@@ -1,7 +1,7 @@
 // import { useRef } from "react";
 import "./Input.css";
 
-interface InputProps {
+export interface InputProps {
     label:string;
     type?:string;
     placeholder?:string;

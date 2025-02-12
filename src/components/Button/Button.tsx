@@ -1,21 +1,42 @@
+import { ReactNode } from "react";
 import "./Button.css";
 
 interface ButtonProps {
-    label:string;
-    bgColor?:string;
-    clickhandler: () => void;
-    icon?:string;
+  label: string;
+  bgColor?: string;
+
+  /**
+   * Camelcase please, and also handleClick is a better name
+   */
+  clickhandler: () => void;
+
+  /**
+   * Accept a ReactNode (element) instead
+   */
+  iconElement?: ReactNode;
 }
 
-function Button({label, bgColor='#488aec', clickhandler, icon}:ButtonProps) {
-    const buttonStyle = {
-        backgroundColor: bgColor,
-      };
+function Button({
+  label,
 
-    return (
-        <div>
-            <button style={buttonStyle} onClick={clickhandler}>{label} {icon &&  <i className={icon}></i>}</button>
-        </div>
-    )
+  /**
+   * Always comment the color if the color cannot be recognized by name.
+   */
+  bgColor = "#488aec", // blue
+  clickhandler,
+  iconElement,
+}: ButtonProps) {
+  const buttonStyle = {
+    backgroundColor: bgColor,
+  };
+
+  return (
+    /**
+     * The wrapping div here is not necessary
+     */
+    <button style={buttonStyle} onClick={clickhandler}>
+      {label} {iconElement}
+    </button>
+  );
 }
 export default Button;
