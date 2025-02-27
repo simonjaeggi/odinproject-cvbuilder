@@ -1,4 +1,5 @@
 import { Page, Text, Document, StyleSheet, View } from "@react-pdf/renderer";
+import { Education, Information } from "../../interface/utils.type";
 
 const styles = StyleSheet.create({
     body: {
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     },
 });
 interface CvLayoutProps {
-    info: Record<string, string>;
+    info: Information;
     education: Record<string, Record<string, string>>;
     work: Record<string, Record<string, string>>;
 }
@@ -100,7 +101,7 @@ export default function CvLayout({ info, education, work }: CvLayoutProps) {
                 <Text style={styles.sectionTitle}>Education</Text>
                 <View style={styles.eduWorkSection}>
 
-                    {Object.entries(education).map(([key, value]) => {
+                {Object.entries(education).map(([key, value]) => {
                         const school = value[`edu-school-${key}`];
                         const program = value[`edu-program-${key}`];
                         const startDate = new Date(value[`edu-start-${key}`]).toLocaleDateString("en-US", { year: "numeric", month: "short" });

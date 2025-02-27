@@ -2,6 +2,7 @@ import { PDFViewer, PDFDownloadLink } from "@react-pdf/renderer";
 import Button from "../Button/Button";
 import CvLayout from "./CvLayout";
 import "./Preview.css";
+import { Education, Information } from "../../interface/utils.type";
 
 const styles = {
   viewer: {
@@ -15,7 +16,7 @@ interface PreviewProps {
   /**
    * Use object notation for types
    */
-  info: Record<string, string>;
+  info: Information;
   education: Record<string, Record<string, string>>;
   work: Record<string, Record<string, string>>;
 }
@@ -33,7 +34,7 @@ export default function Preview({ info, education, work }: PreviewProps) {
         {({ loading }) => (
           <Button
             label={loading ? "Loading document..." : "Download"}
-            clickhandler={() => {}}
+            handleClick={() => {}}
             iconElement={<i className="ri-download-2-line"></i>}
           />
         )}

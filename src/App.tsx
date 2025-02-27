@@ -4,9 +4,12 @@ import EducationForm from "./components/Form/EducationForm/EducationForm.tsx";
 import WorkForm from "./components/Form/Work/WorkForm.tsx";
 import { useEffect, useState } from "react";
 import Preview from "./components/Preview/Preview.tsx";
+import { Information } from "./interface/utils.type.ts";
+
+
 
 function App() {
-  const [info, setInfo] = useState<Record<string, string>>({});
+  const [info, setInfo] = useState<Information>({});
   const [education, setEducation] = useState<
     Record<string, Record<string, string>>
   >({});
