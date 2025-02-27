@@ -1,4 +1,3 @@
-// import { useRef } from "react";
 import "./Input.css";
 
 export interface InputProps {
@@ -12,7 +11,7 @@ export interface InputProps {
 }
 
 function Input({label, type="text", placeholder="", isDisabled=false, id, handleChange, defaultValue}:InputProps) {
-    // const inputRef = useRef<HTMLInputElement>(null);
+
 
     return (
         <div className="coolinput">
@@ -20,7 +19,6 @@ function Input({label, type="text", placeholder="", isDisabled=false, id, handle
                 {label}
             </label>
             <input
-                // ref={inputRef}
                 onChange={(e) => handleChange({value: e.target.value, id} )}
                 disabled={isDisabled}
                 type={type}
