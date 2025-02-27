@@ -14,23 +14,16 @@ function Checkbox({
   id,
 }: CheckboxProps) {
   return (
-    /**
-     * The wrapping React Fragment is not necessary here
-     */
     <div className="checkbox-wrapper-4">
       {/* this is just to test the functionality */}
       <input
-        /**
-         * Avoid shortforms in classnames, although they are still understandable.
-         * Because shortforms may clash with other language shortforms
-         */
-        className="inp-cbx"
+        className="inp-checkbox"
         disabled={isDisabled}
         id={id}
         type="checkbox"
         onChange={(e) => handleChange({ isChecked: e.target.checked, id })}
       ></input>
-      <label className="cbx" htmlFor={id}>
+      <label className="checkbox" htmlFor={id}>
         <span>
           <svg width="12px" height="10px"></svg>
         </span>
