@@ -107,18 +107,18 @@ function WorkBlock({
             <div className="flex-row space-between">
                 <div className="flex-row gap-1rem">
                     <Button
-                        clickhandler={saveButtonClickHandler}
+                        handleClick={saveButtonClickHandler}
                         label={isEditable ? "Save" : "Edit"}
                         bgColor={isEditable ? "#23914b" : "#488aec"}
-                        icon={isEditable ? "ri-save-line" : "ri-pencil-fill"}
+                        iconElement={isEditable ? <i className="ri-save-line"></i> : <i className="ri-pencil-fill"></i>}
                     ></Button>
                     {isEditable && (
                         <div className="flex-row gap-1rem">
                             <Button
-                                clickhandler={() => handleRemove(id)}
+                                handleClick={() => handleRemove(id)}
                                 bgColor="#D93934"
                                 label=""
-                                icon="ri-delete-bin-line"
+                                iconElement={<i className="ri-delete-bin-line"></i> }
                             ></Button>
                         </div>
                     )}
