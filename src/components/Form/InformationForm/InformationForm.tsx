@@ -1,23 +1,18 @@
 import "../Form.css";
-import Input, { InputProps } from "../../Input/Input.tsx";
+import Input from "../../Input/Input.tsx";
 import Button from "../../Button/Button.tsx";
 import FormTitle from "../FormTitle/FormTitle.tsx";
 import { useEffect, useState } from "react";
-import { ReactSetStateFn } from "../../../interface/utils.type.ts";
+import { Information, ReactSetStateFn } from "../../../interface/utils.type.ts";
 
 interface InformationFormProps {
-  info: Record<string, string>;
-  setInfo: ReactSetStateFn<Record<string, string>>;
+  info: Information;
+  setInfo: ReactSetStateFn<Information>;
 }
 
 function InformationForm({ info, setInfo }: InformationFormProps) {
   const [isEditable, setEditable] = useState(true);
 
-  /**
-   * Define lists of objects instead, and then use .map() to render <Input />
-   * Also avoid hyphen-case in object property names. Camel cases are better as it
-   * is the standard, like infoName and infoSurname so on...
-   */
   const infoNameId = "info-name";
   const infoSurnameId = "info-surname";
   const infoEmailId = "info-email";
@@ -80,14 +75,10 @@ function InformationForm({ info, setInfo }: InformationFormProps) {
 
   return (
     <div className="card">
-      {/* Use element shortform <Element /> */}
       <FormTitle icon="ri-information-2-fill" title="General Information" />
 
       <div key={`info-input-wrapper`} className="form-inputs">
-        {/* Create array of objects for your Input props and use .map() to loop them here.
-        Reason: JSX Templates should focus more on rendering data provided by the Component in the function
-        body.
-        */}
+
         {informationFormInputs.map((input) => (
           <Input
             key={input.id}
@@ -99,35 +90,9 @@ function InformationForm({ info, setInfo }: InformationFormProps) {
           />
         ))}
 
-        {/* <Input
-          key={infoSurnameId}
-          id={infoSurnameId}
-          isDisabled={!isEditable}
-          placeholder="Clinton"
-          label="Surname"
-          handleChange={handleInputChange}
-        ></Input>
-        <Input
-          key={infoEmailId}
-          id={infoEmailId}
-          isDisabled={!isEditable}
-          placeholder="bill.clinton@gmail.com"
-          label="Email"
-          type="email"
-          handleChange={handleInputChange}
-        ></Input>
-        <Input
-          key={infoPhoneId}
-          id={infoPhoneId}
-          isDisabled={!isEditable}
-          placeholder="+41 76 123 45 65"
-          label="Phone"
-          type="tel"
-          handleChange={handleInputChange}
-        ></Input> */}
       </div>
       <Button
-        clickhandler={saveButtonClickHandler}
+        handleClick={saveButtonClickHandler}
         label={isEditable ? "Save" : "Edit"}
         bgColor={isEditable ? "#23914b" : "#488aec"}
         iconElement={
