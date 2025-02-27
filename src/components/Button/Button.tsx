@@ -4,26 +4,14 @@ import "./Button.css";
 interface ButtonProps {
   label: string;
   bgColor?: string;
-
-  /**
-   * Camelcase please, and also handleClick is a better name
-   */
-  clickhandler: () => void;
-
-  /**
-   * Accept a ReactNode (element) instead
-   */
+  handleClick: () => void;
   iconElement?: ReactNode;
 }
 
 function Button({
   label,
-
-  /**
-   * Always comment the color if the color cannot be recognized by name.
-   */
   bgColor = "#488aec", // blue
-  clickhandler,
+  handleClick,
   iconElement,
 }: ButtonProps) {
   const buttonStyle = {
@@ -31,10 +19,7 @@ function Button({
   };
 
   return (
-    /**
-     * The wrapping div here is not necessary
-     */
-    <button style={buttonStyle} onClick={clickhandler}>
+    <button style={buttonStyle} onClick={handleClick}>
       {label} {iconElement}
     </button>
   );
