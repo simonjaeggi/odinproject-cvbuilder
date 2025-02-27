@@ -35,7 +35,7 @@ export default function WorkForm({ work, setWork }: WorkFormProps) {
             title="Work Experience"
           ></FormTitle>
           <Button
-            clickhandler={addButtonClickHandler}
+            handleClick={addButtonClickHandler}
             label="ADD"
             iconElement={<i className="ri-add-large-line"></i>}
           ></Button>
