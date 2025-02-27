@@ -51,14 +51,14 @@ export default function EducationForm({
       <div className="flex-row space-between">
         <FormTitle icon="ri-graduation-cap-fill" title="Education"></FormTitle>
         <Button
-          clickhandler={addButtonClickHandler}
+          handleClick={addButtonClickHandler}
           label="ADD"
           /**
            * Make icon to accept a ReactNode instead.
            */
           iconElement={<i className="ri-add-large-line"></i>}
         ></Button>
-      </div>
+      </div>  
 
       {/* Always use arrays for storing lists. It is easier to work with
     Also, use the shorthand for elements like <Element /> if possible. This shows that
