@@ -3,7 +3,7 @@
     font-size: 0.8rem;
   }
   
-  .checkbox-wrapper-4 .cbx {
+  .checkbox-wrapper-4 .checkbox {
     -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
@@ -14,21 +14,21 @@
     display: inline-block;
   }
   
-  .checkbox-wrapper-4 .cbx:not(:last-child) {
+  .checkbox-wrapper-4 .checkbox:not(:last-child) {
     margin-right: 6px;
   }
   
-  .checkbox-wrapper-4 .cbx:hover {
+  .checkbox-wrapper-4 .checkbox:hover {
     background: rgba(0,119,255,0.06);
   }
   
-  .checkbox-wrapper-4 .cbx span {
+  .checkbox-wrapper-4 .checkbox span {
     float: left;
     vertical-align: middle;
     transform: translate3d(0, 0, 0);
   }
   
-  .checkbox-wrapper-4 .cbx span:first-child {
+  .checkbox-wrapper-4 .checkbox span:first-child {
     position: relative;
     width: 18px;
     height: 18px;
@@ -39,7 +39,7 @@
     box-shadow: 0 1px 1px rgba(0,16,75,0.05);
   }
   
-  .checkbox-wrapper-4 .cbx span:first-child svg {
+  .checkbox-wrapper-4 .checkbox span:first-child svg {
     position: absolute;
     top: 3px;
     left: 2px;
@@ -55,27 +55,27 @@
     transform: translate3d(0, 0, 0);
   }
   
-  .checkbox-wrapper-4 .cbx span:last-child {
+  .checkbox-wrapper-4 .checkbox span:last-child {
     padding-left: 8px;
     line-height: 18px;
   }
   
-  .checkbox-wrapper-4 .cbx:hover span:first-child {
+  .checkbox-wrapper-4 .checkbox:hover span:first-child {
     border-color: #07f;
   }
   
-  .checkbox-wrapper-4 .inp-cbx {
+  .checkbox-wrapper-4 .inp-checkbox {
     position: absolute;
     visibility: hidden;
   }
   
-  .checkbox-wrapper-4 .inp-cbx:checked + .cbx span:first-child {
+  .checkbox-wrapper-4 .inp-checkbox:checked + .checkbox span:first-child {
     background: #07f;
     border-color: #07f;
     animation: wave-4 0.4s ease;
   }
   
-  .checkbox-wrapper-4 .inp-cbx:checked + .cbx span:first-child svg {
+  .checkbox-wrapper-4 .inp-checkbox:checked + .checkbox span:first-child svg {
     stroke-dashoffset: 0;
   }
   
@@ -88,7 +88,7 @@
   }
   
   @media screen and (max-width: 640px) {
-    .checkbox-wrapper-4 .cbx {
+    .checkbox-wrapper-4 .checkbox {
       width: 100%;
       display: inline-block;
     }
